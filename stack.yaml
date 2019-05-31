@@ -1,0 +1,69 @@
+# If you are building with `stack`, please know that this is an
+# unofficially-supported way to build. Breakage may occur; we
+# strongly recommend using cabal's Nix-style builds.
+
+apply-ghc-options: targets
+
+packages:
+- '.'
+- location: services/semanticd
+- location: tools/slurp
+  extra-dep: true
+- location: vendor/haskell-tree-sitter/languages/go
+  extra-dep: true
+- location: vendor/haskell-tree-sitter/languages/haskell
+  extra-dep: true
+- location: vendor/haskell-tree-sitter/languages/json
+  extra-dep: true
+- location: vendor/haskell-tree-sitter/languages/php
+  extra-dep: true
+- location: vendor/haskell-tree-sitter/languages/python
+  extra-dep: true
+- location: vendor/haskell-tree-sitter/languages/ruby
+  extra-dep: true
+- location: vendor/haskell-tree-sitter/languages/typescript
+  extra-dep: true
+- location: vendor/haskell-tree-sitter/languages/java
+  extra-dep: true
+- location: vendor/hspec-expectations-pretty-diff
+  extra-dep: true
+- location: vendor/haskell-tree-sitter
+  extra-dep: true
+- location: vendor/freer-cofreer
+  extra-dep: true
+# Helpful if you need to quickly make changes to one of these:
+# - location: vendor/proto3-suite
+#   extra-dep: true
+- location:
+    git: https://github.com/joshvera/proto3-suite
+    commit: e13c7099789867733f42f47a25349a826937d870
+  extra-dep: true
+- location:
+    git: https://github.com/joshvera/proto3-wire
+    commit: 84664e22f01beb67870368f1f88ada5d0ad01f56
+  extra-dep: true
+- location:
+    git: https://github.com/tclem/twirp-haskell
+    commit: 86514b21e2f9465b7d7371be32d57b7d5427ddfd
+  extra-dep: true
+- location:
+    git: https://github.com/fused-effects/fused-effects-exceptions
+    commit: 5533982d404e614fa411adf817c32d85fefe9958
+  extra-dep: true
+
+resolver: lts-13.13
+extra-deps:
+- netrc-0.2.0.0
+- haddocset-0.4.3
+- github-0.20
+- generic-monoid-0.1.0.0
+- cmark-gfm-0.1.8
+- semilattices-0.0.0.3
+- fused-effects-0.4.0.0
+- fastsum-0.1.1.0
+
+# Suppress errors associated with the -nopie option being passed to clang.
+# https://github.com/commercialhaskell/stack/issues/4009
+apply-ghc-options: everything
+ghc-options:
+  $everything: -optc -Wno-unused-command-line-argument
