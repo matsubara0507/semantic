@@ -6,9 +6,6 @@ apply-ghc-options: targets
 
 packages:
 - '.'
-- location: services/semanticd
-- location: tools/slurp
-  extra-dep: true
 - location: vendor/haskell-tree-sitter/languages/go
   extra-dep: true
 - location: vendor/haskell-tree-sitter/languages/haskell
@@ -61,6 +58,7 @@ extra-deps:
 - semilattices-0.0.0.3
 - fused-effects-0.4.0.0
 - fastsum-0.1.1.0
+- http-client-0.6.4
 
 # Suppress errors associated with the -nopie option being passed to clang.
 # https://github.com/commercialhaskell/stack/issues/4009
