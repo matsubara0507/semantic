@@ -1,0 +1,23 @@
+resolver: lts-13.21
+packages:
+- .
+- vendor/freer-cofreer
+- vendor/haskell-tree-sitter
+- vendor/haskell-tree-sitter/languages/go
+- vendor/haskell-tree-sitter/languages/haskell
+- vendor/haskell-tree-sitter/languages/java
+- vendor/haskell-tree-sitter/languages/json
+- vendor/haskell-tree-sitter/languages/php
+- vendor/haskell-tree-sitter/languages/python
+- vendor/haskell-tree-sitter/languages/ruby
+- vendor/haskell-tree-sitter/languages/typescript
+- vendor/hspec-expectations-pretty-diff
+- vendor/proto3-suite
+- vendor/proto3-wire
+extra-deps:
+- fastsum-0.1.1.0
+- fused-effects-0.4.0.0
+- fused-effects-exceptions-0.1.1.0
+- generic-monoid-0.1.0.0
+- http-client-0.6.4
+- semilattices-0.0.0.3
